@@ -1,0 +1,17 @@
+<h1>Blogger's specific page</h1>
+
+<h1>Age: <%= @blogger.age%></h1>
+
+<h2>Name: <%= @blogger.name%></h2>
+
+<p>About Me: <%= @blogger.bio%></p>
+
+<h1>Posts</h1>
+<ul>
+    <% @blogger.posts.each do |post|%>
+        <li><%= link_to post.title, post_path(post)%></li>
+    <%end%>
+</ul>
+
+<%= link_to "Edit User", edit_blogger_path(@blogger)%>
+<%= button_to "Destroy this User", blogger_path(@blogger), method: :delete%>
